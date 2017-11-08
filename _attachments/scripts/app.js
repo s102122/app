@@ -12,23 +12,21 @@ angular.module('movieApp', ['ngRoute'])
 	
 	.controller('homeCtrl', function($scope, moviesSrv, saveSrv) {
 		
-	    	$('#searchButton').on('click', function (e) {
-
-	    		$scope.movies = '';
+	    	$('#searchButton').on('click', function (e) {	    	
 
 	    		var actor = $('#actorText').val();
 	    		
 	    		var results = saveSrv.getObject(actor);
 	    		
-	    		console.log(results);
+	    		//console.log(results);
 	    		
 	    		if(Object.keys(results).length == 0){ //acteur is nog niet opgeslagen in couchDB
 	    		
 	    			moviesSrv.getMoviesWithActor(actor).then(function(data){
 	    			
-	    			console.log('movie search');
-	    			console.log(actor);
-	    			console.log(data);
+	    			//console.log('movie search');
+	    			//console.log(actor);
+	    			//console.log(data);
 	    			
 	    			$scope.movieResults = data; //weet niet hoe alleen de filmografie lijst te tonen!! =(((   		    		
 		    			
