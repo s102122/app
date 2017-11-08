@@ -18,15 +18,10 @@ angular.module('movieApp', ['ngRoute'])
 	    		
 	    		var results = saveSrv.getObject(actor);
 	    		
-	    		//console.log(results);
-	    		
+	    		//bug alleen de eerste keer bij nieuwe opzoek wordt er correct opgeslagen, de localstorage geeft nog niet juist de data terug
 	    		if(Object.keys(results).length == 0){ //acteur is nog niet opgeslagen in couchDB
 	    		
-	    			moviesSrv.getMoviesWithActor(actor).then(function(data){
-	    			
-	    			//console.log('movie search');
-	    			//console.log(actor);
-	    			//console.log(data);
+	    			moviesSrv.getMoviesWithActor(actor).then(function(data){ 
 	    			
 	    			$scope.movieResults = data; //weet niet hoe alleen de filmografie lijst te tonen!! =(((   		    		
 		    			
