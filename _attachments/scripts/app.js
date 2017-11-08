@@ -20,6 +20,8 @@ angular.module('movieApp', ['ngRoute'])
 	    		
 	    		var results = saveSrv.getObject(actor);
 	    		
+	    		console.log(results);
+	    		
 	    		if(Object.keys(results).length == 0){ //acteur is nog niet opgeslagen in couchDB
 	    		
 	    			moviesSrv.getMoviesWithActor(actor).then(function(data){
@@ -31,13 +33,13 @@ angular.module('movieApp', ['ngRoute'])
 	    			$scope.movieResults = data; //weet niet hoe alleen de filmografie lijst te tonen!! =(((   		    		
 		    			
 		    				results = data;
-		    				saveSrv.setObject(actor, data);		    				
+		    				saveSrv.setObject(actor, data); // opslaan    				
 		    			});
 		    		}
 		    		else {
 		    			//als de acteur al eens eerder opgezocht was, toon de toen opgeslagen zoek resultaten
 		    			console.log('reloaded!');
-		    			$scope.movieResults = saveSrv.getObject('_design/..' + actor);    		    
+		    			$scope.movieResults = saveSrv.getObject(actor);    		    
 		    		}	    			
 	    		});
 	    	 	
