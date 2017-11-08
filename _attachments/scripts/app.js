@@ -37,7 +37,7 @@ angular.module('movieApp', ['ngRoute'])
 		    		else {
 		    			//als de acteur al eens eerder opgezocht was, toon de toen opgeslagen zoek resultaten
 		    			console.log('reloaded!');
-		    			$scope.movieResults = saveSrv.getObject('results');    		    
+		    			$scope.movieResults = saveSrv.getObject('_design/..' + actor);    		    
 		    		}	    			
 	    		});
 	    	 	
